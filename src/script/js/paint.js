@@ -16,7 +16,7 @@
     return $("#pos");
   });
 
-  canvas.on("mousemove", function(evt) {
+  document.getElementById("board").addEventListener("mousemove", function(evt) {
     return console.log("" + (mousePos(evt)[0]) + " " + (mousePos(evt)[1]));
   });
 

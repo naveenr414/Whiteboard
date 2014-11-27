@@ -4,6 +4,6 @@ mousePos = (evt)->
 
 canvas = $ -> $("#board")
 textLocation = $ -> $("#pos")
-canvas.on "mousemove" , (evt)->
-	console.log "#{mousePos(evt)[0]} #{mousePos(evt)[1]}"
+document.getElementById("board").addEventListener("mousemove",(evt)->
+	console.log "#{mousePos(evt)[0]} #{mousePos(evt)[1]}")
 
