@@ -1,9 +1,32 @@
+
+#Canvas
+canvas = document.getElementById("board")
+
+#Bounding Rectangle of the Canvas
+box = canvas.getBoundingClientRect()
+
+#Actual Canvas
+
 mousePos = (evt)->
-	box = document.getElementById("board").getBoundingClientRect()
 	[evt.clientX-box.left,-1*(evt.clientY-box.right)]
 
-canvas = $ -> $("#board")
-textLocation = $ -> $("#pos")
+
+
+width = canvas.width
+height = canvas.height
+context = canvas.getContext("2d")
+imageData = context.createImageData(width,height)
+
+for i in [0..imageData.data.length]
+	imageData.data[i] =  Math.floor((Math.random() * 120))
+
+context.putImageData(imageData,0,0)
+
 document.getElementById("board").addEventListener("mousemove",(evt)->
-	console.log "#{mousePos(evt)[0]} #{mousePos(evt)[1]}")
+	for i in [0..imageData.data.length]
+		imageData.data[i] = 255
+		imageData.data[i] =  Math.floor((Math.random() * 120)) if i%4!= 3
+
+	context.putImageData(imageData,0,0)
+)
 
