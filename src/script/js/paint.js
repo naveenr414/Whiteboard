@@ -6,15 +6,15 @@
 
   box = canvas.getBoundingClientRect();
 
-  mousePos = function(evt) {
-    return [evt.clientX - box.left, -1 * (evt.clientY - box.right)];
-  };
-
   width = canvas.width;
 
   height = canvas.height;
 
   context = canvas.getContext("2d");
+
+  mousePos = function(evt) {
+    return [evt.clientX - box.left, -1 * (evt.clientY - box.right)];
+  };
 
   imageData = context.createImageData(width, height);
 
